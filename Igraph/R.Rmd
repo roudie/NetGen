@@ -1,0 +1,30 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+Model Watts-Strogatz (small world)
+```{r}
+dim = 2
+size = 3
+nei = 2
+p = 0.1
+g <- sample_smallworld(dim, size, nei, p, loops=FALSE, multiple = FALSE)
+plot(g)
+```
+Model Barabasi-Albert
+```{r}
+n = 10
+power = 1
+m = 3
+directed = FALSE
+g <- sample_pa(n, power, m, out.dist = NULL, out.seq=NULL, out.pref = FALSE, zero.appeal = 1, directed = directed)
+plot(g)
+```
+```{r}
+n = 10
+p = 0.5
+g <- erdos.renyi.game(n, p, type = "gnp", loops = FALSE)
+plot(g)
+```
